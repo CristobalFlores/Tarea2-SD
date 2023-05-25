@@ -3,8 +3,8 @@ Segunda Tarea de sistemas distribuidos <br/>
 Cristóbal Flores Monroy || 19.954.317-2 || cristobal.flores1@mail.udp.cl <br/>
 Ignacio Eduardo Boettcher Hermosilla || 19.743.304-3 || ignacio.boettcher@mail.udp.cl <br/> <br/>
 
-link video kafka : https://youtu.be/Fx6ntp580e8
-link video RabbitMQ : https://youtu.be/IktMlTjOGrc <br/>
+link video kafka : https://youtu.be/Fx6ntp580e8 <br/>
+link video RabbitMQ : https://www.youtube.com/playlist?list=PLXqyid9dkeJYz30afvlbJesJryVRZxQnU <br/>
 
 ======================================================================== <br/><br/>
 
