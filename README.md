@@ -9,6 +9,7 @@ link video RabbitMQ : https://youtu.be/IktMlTjOGrc <br/>
 ======================================================================== <br/><br/>
 
 Orden de ejecucion del codigo Kafka: <br/> <br/>
+
 1.- ingresar a la ruta '/Sis distribuidos/Docker' <br/>
 2.- Instanciar Kafka y Zookeeper en un docker mediante ' -f \docker-compose.yml up -d ' <br/>
 3.- Ingresar a la ruta '/Sis distribuidos' <br/>
@@ -18,6 +19,8 @@ Importante recordar cerrar producer por que no cuenta con una instruccion de fin
 <br/>
 
 ======================================================================== <br/><br/>
+
+Orden de ejecucion del codigo RabbitMQ: <br/> <br/>
 
 En este archivo docker-compose.yml, estamos definiendo un servicio llamado rabbitmq que se construirá a partir del Dockerfile en el mismo <br/>
 directorio (eso es lo que significa el . en la línea de build). También estamos mapeando los puertos 5672 y 15672 de RabbitMQ a los mismos puertos en tu máquina local.<br/><br/>
