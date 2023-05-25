@@ -1,0 +1,93 @@
+En este archivo docker-compose.yml, estamos definiendo un servicio 
+llamado rabbitmq que se construirá a partir del Dockerfile en el mismo
+directorio (eso es lo que significa el . en la línea de build). También estamos 
+mapeando los puertos 5672 y 15672 de RabbitMQ a los mismos puertos en tu máquina local.
+
+
+Puedes construir y ejecutar tu contenedor utilizando Docker Compose con el siguiente comando:
+
+---------------------------
+$ docker-compose build
+###$ docker-compose up  ##Esto levantara todo los servicios en una misma terminal (no recomendable)
+Despues levantamos cada servicio en una terminal distinta 
+
+$ docker-compose up rabbitmq    
+## Una vez tengamos corriendo el contenedor con el servidor de RabbitMQ meternos a
+## http://localhost:15672
+
+
+
+Esta parte fue de prueba para los contenedores
+###########################################
+$ docker-compose up productor   ## (CONTENEDORES) esto correra el productor con los valores por defecto 10 dispositivos 5 seg 
+$ docker-compose up consumidor  ## (CONTENEDORES) esto correra el consumidor con los valores por defecto 1 por categoria 
+---------------------------
+##########################################
+
+#para correr con valores propios el siguiente comando
+# Ejemplo:
+
+$ python Productor-RabbitMQ.py --num_dispo 15 --delta_time 3
+
+$ python Consumidor-RabbitMQ.py --num_consumers 5
+# Numero de consumers por categoria EN este ejemplo de 5 en total serian 20 consumidores en total
+# EL NUMERO DE CONSUMIDORES TIENE QUE SER MAYOR O IGUAL A 5
+
+
+
+
+
+
+PRUEBAS
+#################################
+En esta configuración de Docker Compose, se definen tres servicios: productor, consumidor y rabbitmq. El servicio productor utiliza el Dockerfile 
+Productor-Dockerfile para construir la imagen del productor. El servicio consumidor utiliza el Dockerfile Consumidor-Dockerfile para construir la imagen del consumidor. 
+El servicio rabbitmq utiliza la imagen rabbitmq:3-management de Docker Hub para ejecutar el servidor RabbitMQ.
+
+Se establecen las variables de entorno necesarias (RABBITMQ_HOST, RABBITMQ_USER y RABBITMQ_PASS) en los servicios 
+del productor y el consumidor para especificar la dirección IP o el nombre de host del servidor RabbitMQ, así como las credenciales de acceso.
+
+El servicio productor y el servicio consumidor dependen del servicio rabbitmq, lo que garantiza que el servidor RabbitMQ esté en 
+ejecución antes de que se inicien los contenedores del productor y el consumidor.
+
+Para ejecutar los contenedores utilizando Docker Compose, asegúrate de tener un archivo docker-compose.yml en el mismo directorio que los 
+Dockerfiles y ejecuta el siguiente comando en la línea de comandos:
+
+$ docker-compose up
+
+
+
+
+
+
+
+
+
+
+
+docker-compose up --build -d
+
+Esto construirá tu imagen a partir del Dockerfile y luego iniciará el contenedor en segundo plano.
+
+
+
+
+
+##############################################
+##OMITIR ESTA PARTE (SECCIÓN DE PRUEBAS)######
+##############################################
+Imagenes productor y consumidor
+--------------------------------
+docker build -t productor-rabbitmq -f Productor-Dockerfile .
+docker build -t consumidor-rabbitmq -f Consumidor-Dockerfile .
+--------------------------------
+
+correr
+---------------------------------
+docker run -e RABBITMQ_HOST=localhost -e RABBITMQ_USER=user -e RABBITMQ_PASS=password productor-rabbitmq
+
+docker run -e RABBITMQ_HOST=localhost -e RABBITMQ_USER=user -e RABBITMQ_PASS=password consumidor-rabbitmq
+-------------------------------------------------------
+
+
+
