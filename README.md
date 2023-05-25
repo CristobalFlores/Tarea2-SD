@@ -29,28 +29,30 @@ Puedes construir y ejecutar tu contenedor utilizando Docker Compose con el sigui
 
 ---------------------------<br/><br/
 $ docker-compose build <br/>
-###$ docker-compose up  ##Esto levantara todo los servicios en una misma terminal (no recomendable) <br/>
+$ docker-compose up  ##Esto levantara todo los servicios en una misma terminal (no recomendable) <br/>
 Despues levantamos cada servicio en una terminal distinta <br/> <br/>
 
 $ docker-compose up rabbitmq <br/>
-## Una vez tengamos corriendo el contenedor con el servidor de RabbitMQ meternos a <br/>
-## http://localhost:15672 <br/><br/>
+Una vez tengamos corriendo el contenedor con el servidor de RabbitMQ meternos a <br/>
+http://localhost:15672 <br/><br/>
 
 Esta parte fue de prueba para los contenedores <br/>
+
 ########################################### <br/>
+
 $ docker-compose up productor   ## (CONTENEDORES) esto correra el productor con los valores por defecto 10 dispositivos 5 seg  <br/>
 $ docker-compose up consumidor  ## (CONTENEDORES) esto correra el consumidor con los valores por defecto 1 por categoria  <br/><br/>
 
 --------------------------- <br/>
 ########################################## <br/>
 
-#para correr con valores propios el siguiente comando <br/>
-# Ejemplo: <br/>
+para correr con valores propios el siguiente comando <br/>
+Ejemplo: <br/>
 
 $ python Productor-RabbitMQ.py --num_dispo 15 --delta_time 3 <br/>
 
 $ python Consumidor-RabbitMQ.py --num_consumers 5 <br/>
-# Numero de consumers por categoria EN este ejemplo de 5 en total serian 20 consumidores en total <br/>
-# EL NUMERO DE CONSUMIDORES TIENE QUE SER MAYOR O IGUAL A 5 <br/>
+Numero de consumers por categoria EN este ejemplo de 5 en total serian 20 consumidores en total <br/>
+EL NUMERO DE CONSUMIDORES TIENE QUE SER MAYOR O IGUAL A 5 <br/>
 
 
